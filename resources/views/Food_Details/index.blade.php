@@ -16,12 +16,11 @@
     </div>
     <div class="container-fluid">
         <div class="row">
+
             <div class="col-12">
-                @foreach ($fooddata as $category => $menus)
+                @foreach ($fooddata as $category_name => $menus)
                     <div class="card">
-
-
-                        <h5 class="card-title ml-2 mt-3">{{ $category }}</h5>
+                        <h5 class="card-title ml-2 mt-3">{{ $category_name }}</h5>
                         <table class="table mt-2">
                             <thead>
                                 <tr>
@@ -67,5 +66,12 @@
             @endforeach
         </div>
     </div>
+
+
+
+
+
+
+
     </div>
 @endsection

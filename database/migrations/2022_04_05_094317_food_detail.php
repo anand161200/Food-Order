@@ -17,10 +17,11 @@ class FoodDetail extends Migration
             $table->id();
             $table->string('food_name');
             $table->string('description');
-            $table->string('category');
+            $table->unsignedBigInteger('category_id');
             $table->integer('price');
             $table->string('images');
             $table->timestamps();
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

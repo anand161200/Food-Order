@@ -1,26 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    {{-- <div class="container">
-        <h4 class="text-center mt-5">upadte category</h4>
-        <hr>
-
-        <form action="{{ route('upadate_category') }}" method="POST">
-            @csrf
-            <input type="hidden" name="id" value="{{ $edit_category->id }}">
-
-            <label for="category_name" class="form-label">category_name</label>
-            <input type="textar" class="form-control" name="category_name" value="{{ $edit_category->category_name }}"
-                placeholder="Name">
-
-            <span class="filed_error">
-                @error('category_name')
-                    {{ $message }}
-                @enderror
-                <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div> --}}
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">

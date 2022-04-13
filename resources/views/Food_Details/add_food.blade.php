@@ -1,55 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    {{-- <form action="{{ route('insert_data') }}" method="post">
-        @csrf
-        <div class="container">
-            <h4 class="text-center mt-5">Add new food</h4>
-            <hr>
-            <div class="mb-2">
-                <label for="food_name" class="form-label">food_name</label>
-                <input type="textar" class="form-control" name="food_name" value="{{ old('food_name') }}"
-                    placeholder="Name">
-
-                <span class="filed_error">
-                    @error('food_name')
-                        {{ $message }}
-                    @enderror
-            </div>
-            <div class="mb-2">
-                <label for="description" class="form-label">description</label>
-                <textarea row=4 col=40 class="form-control" name="description" value="{{ old('description') }}"
-                    placeholder="description"></textarea>
-                <span class="filed_error">
-                    @error('description')
-                        {{ $message }}
-                    @enderror
-            </div>
-            <div class="mb-2">
-                <select class="form-select" name="category" aria-label="Default select example">
-                    <option value="">Select Category</option>
-                    @foreach ($categorydata as $val)
-                        <option value="{{ $val->category_name }}">{{ $val->category_name }}</option>
-                    @endforeach
-                </select>
-                <span class="filed_error">
-                    @error('category')
-                        {{ $message }}
-                    @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="price" class="form-label">price</label>
-                <input type="text" class="form-control" name="price" value="{{ old('price') }}" placeholder="price">
-                <span class="filed_error">
-                    @error('price')
-                        {{ $message }}
-                    @enderror
-
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-
-    </form> --}}
-
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -108,11 +58,11 @@
                                     <select class="form-control" name="category" aria-label="Default select example">
                                         <option value="">Select Category</option>
                                         @foreach ($categorydata as $val)
-                                            <option value="{{ $val->category_name }}">{{ $val->category_name }}</option>
+                                            <option value="{{ $val->id }}">{{ $val->category_name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="filed_error">
-                                        @error('category')
+                                        @error('category_id')
                                             {{ $message }}
                                         @enderror
                                     </span>
