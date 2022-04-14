@@ -80,4 +80,8 @@ Route::post('password_update', [usercontroller::class, 'updatepassword'])->name(
 
 // Dashbord
 
-Route::get('/', [usercontroller::class, 'dashboard'])->name('dashboard');
+Route::get('/', [usercontroller::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
+
+//user
+
+Route::view('/abc', 'about');

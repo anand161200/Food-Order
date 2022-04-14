@@ -18,7 +18,6 @@
     <div class="container-fluid">
 
         <div class="row">
-            <!-- Column -->
             <div class="col-md-6 col-lg-2 col-xlg-3">
                 <a href="{{ route('categorylist') }}">
                     <div class="card card-hover">
