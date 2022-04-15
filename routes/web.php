@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientSideController;
 use App\Http\Controllers\FoodDetailController;
 use App\Http\Controllers\usercontroller;
 use App\Models\category;
@@ -84,6 +85,8 @@ Route::get('/', [usercontroller::class, 'dashboard'])->name('dashboard')->middle
 
 //userside
 
-Route::get('/home', [FoodDetailController::class, 'UserHome'])->name('user_Home')->middleware(['auth']);
+Route::get('/home', [ClientSideController::class, 'UserHome'])->name('user_Home')->middleware(['auth']);
 
-Route::get('/about', [FoodDetailController::class, 'About'])->name('about')->middleware(['auth']);
+Route::get('/about', [ClientSideController::class, 'About'])->name('about')->middleware(['auth']);
+
+Route::get('/gallery', [ClientSideController::class, 'Gallery'])->name('gallery')->middleware(['auth']);

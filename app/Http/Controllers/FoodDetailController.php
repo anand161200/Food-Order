@@ -127,23 +127,4 @@ class FoodDetailController extends Controller
 
         return view('Food_Details.view_foodDetail')->with(['user' => $viewfood]);
     }
-
-    function UserHome()
-    {
-        $menus = DB::table('food_detail')
-            ->select([
-                'food_detail.*',
-                'categories.category_name'
-            ])
-            ->join('categories', 'food_detail.category_id', '=', 'categories.id')
-            ->get();
-
-        return view('client_side.Home')->with(['fooddetail' => $menus]);
-    }
-
-
-    function About()
-    {
-        return view('client_side.about');
-    }
 }

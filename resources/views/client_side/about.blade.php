@@ -21,8 +21,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="banner-frame"> <img class="img-fluid"
-                            src="  {{ asset('user/images/Sanjay_Thumma.jpg') }}" alt="" />
+                    <div class="banner-frame"> <img class="img-fluid" src="{{ asset('user/images/res.jpg') }}"
+                            alt="" />
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="hover-team">
-                        <div class="our-team"> <img src="{{ asset('user/images/Sanjay_Thumma.jpg') }}" alt="" />
+                        <div class="our-team"> <img src="{{ asset('user/images/Sanjeev-Kapoor.jpg') }}" alt="" />
                             <div class="team-content">
                                 <h3 class="title">Kristiana</h3> <span class="post">Web
                                     Developer</span>
@@ -166,7 +166,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="hover-team">
-                        <div class="our-team"> <img src="{{ asset('user/images/img-1.jpg') }}" alt="" />
+                        <div class="our-team"> <img src="{{ asset('user/images/Sanjeev-Kapoor.jpg') }}" alt="" />
                             <div class="team-content">
                                 <h3 class="title">Williamson</h3> <span class="post">Web
                                     Developer</span>

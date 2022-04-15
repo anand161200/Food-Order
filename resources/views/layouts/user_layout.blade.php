@@ -16,8 +16,8 @@
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="{{ asset('user/images/favicon.png') }}" type="image/x-icon">
-    <link rel="apple-touch-icon" href="{{ asset('user/images/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('user/css/bootstrap.min.css') }}">
@@ -134,7 +134,8 @@
                                 <li><a href="wishlist.html">Wishlist</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('gallery') }}">Gallery</a>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
                     </ul>
                 </div>
