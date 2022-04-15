@@ -90,7 +90,7 @@ class usercontroller extends Controller
             if (Auth::user()->hasrole('admin')) {
                 return redirect()->route('dashboard');
             }
-            return redirect()->route('index');
+            return redirect()->route('user_Home');
         }
 
         Session::flash('message', 'Email or passsword inccorect.');

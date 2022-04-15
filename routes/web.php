@@ -24,31 +24,31 @@ Route::get('dashbord', function () {
 
 // food menu
 
-Route::get('index', [FoodDetailController::class, 'index'])->name('index');
+Route::get('index', [FoodDetailController::class, 'index'])->name('index')->middleware(['auth']);
 
-Route::get('addfood', [FoodDetailController::class, 'addfrom'])->name('addfood');
+Route::get('addfood', [FoodDetailController::class, 'addfrom'])->name('addfood')->middleware(['auth']);
 
-Route::post('insert-food', [FoodDetailController::class, 'insert'])->name('insert_data');
+Route::post('insert-food', [FoodDetailController::class, 'insert'])->name('insert_data')->middleware(['auth']);
 
-Route::get('edit_food/{id}', [FoodDetailController::class, 'editData'])->name('edit_food');
+Route::get('edit_food/{id}', [FoodDetailController::class, 'editData'])->name('edit_food')->middleware(['auth']);
 
-Route::post('upadate_food', [FoodDetailController::class, 'updateData'])->name('upadate_food');
+Route::post('upadate_food', [FoodDetailController::class, 'updateData'])->name('upadate_food')->middleware(['auth']);
 
-Route::get('delete_data/{id}', [FoodDetailController::class, 'deleteData']);
+Route::get('delete_data/{id}', [FoodDetailController::class, 'deleteData'])->middleware(['auth']);
 
-Route::get('view_foodDetail/{id}', [FoodDetailController::class, 'viewData']);
+Route::get('view_foodDetail/{id}', [FoodDetailController::class, 'viewData'])->middleware(['auth']);
 
 // category
 
-Route::get('categorylist', [CategoryController::class, 'categoryshow'])->name('categorylist');
+Route::get('categorylist', [CategoryController::class, 'categoryshow'])->name('categorylist')->middleware(['auth'])->middleware(['auth']);
 
-Route::get('add_category', [CategoryController::class, 'addCategory'])->name('add_category');
+Route::get('add_category', [CategoryController::class, 'addCategory'])->name('add_category')->middleware(['auth'])->middleware(['auth']);
 
-Route::post('insert-category', [CategoryController::class, 'categoryinsert'])->name('insert-category');
+Route::post('insert-category', [CategoryController::class, 'categoryinsert'])->name('insert-category')->middleware(['auth'])->middleware(['auth']);
 
-Route::get('edit_category/{id}', [CategoryController::class, 'editData'])->name('edit_category');
+Route::get('edit_category/{id}', [CategoryController::class, 'editData'])->name('edit_category')->middleware(['auth'])->middleware(['auth']);
 
-Route::post('upadate_category', [CategoryController::class, 'updateData'])->name('upadate_category');
+Route::post('upadate_category', [CategoryController::class, 'updateData'])->name('upadate_category')->middleware(['auth'])->middleware(['auth'])->middleware(['auth']);
 
 Route::get('delete_category/{id}', [CategoryController::class, 'deleteData']);
 
@@ -56,7 +56,7 @@ Route::get('delete_category/{id}', [CategoryController::class, 'deleteData']);
 
 Route::get('register', [usercontroller::class, 'viewRegister'])->name('register');
 
-Route::post('insert-user', [usercontroller::class, 'addNewUser'])->name('insert_user');
+Route::post('insert-user', [usercontroller::class, 'addNewUser'])->name('insert_user')->middleware(['auth']);
 
 //loging 
 
@@ -66,22 +66,24 @@ Route::post('login-user', [usercontroller::class, 'login'])->name('login');
 
 // update profile
 
-Route::get('edit_profile', [usercontroller::class, 'editprofile'])->name('edit_profile');
+Route::get('edit_profile', [usercontroller::class, 'editprofile'])->name('edit_profile')->middleware(['auth']);
 
-Route::post('upadate_profile', [usercontroller::class, 'updateUser'])->name('upadate_profile');
+Route::post('upadate_profile', [usercontroller::class, 'updateUser'])->name('upadate_profile')->middleware(['auth']);
 
-Route::get('logout', [usercontroller::class, 'logout'])->name('logout');
+Route::get('logout', [usercontroller::class, 'logout'])->name('logout')->middleware(['auth']);
 
 //update password
 
-Route::get('update_password', [usercontroller::class, 'UpdatepasswordForm'])->name('update_password');
+Route::get('update_password', [usercontroller::class, 'UpdatepasswordForm'])->name('update_password')->middleware(['auth']);
 
-Route::post('password_update', [usercontroller::class, 'updatepassword'])->name('password_update');
+Route::post('password_update', [usercontroller::class, 'updatepassword'])->name('password_update')->middleware(['auth']);
 
 // Dashbord
 
-Route::get('/', [usercontroller::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
+Route::get('/', [usercontroller::class, 'dashboard'])->name('dashboard')->middleware(['auth'])->middleware(['auth']);
 
-//user
+//userside
 
-Route::view('/abc', 'about');
+Route::get('/home', [FoodDetailController::class, 'UserHome'])->name('user_Home')->middleware(['auth']);
+
+Route::get('/about', [FoodDetailController::class, 'About'])->name('about')->middleware(['auth']);
