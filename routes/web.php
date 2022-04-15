@@ -90,3 +90,5 @@ Route::get('/home', [ClientSideController::class, 'UserHome'])->name('user_Home'
 Route::get('/about', [ClientSideController::class, 'About'])->name('about')->middleware(['auth']);
 
 Route::get('/gallery', [ClientSideController::class, 'Gallery'])->name('gallery')->middleware(['auth']);
+
+Route::get('/contact_us', [ClientSideController::class, 'Contact_us'])->name('Contact_us')->middleware(['auth']);

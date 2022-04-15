@@ -31,4 +31,9 @@ class ClientSideController extends Controller
     {
         return view('client_side.gallery');
     }
+
+    function Contact_us()
+    {
+        return view('client_side.contact_us');
+    }
 }
