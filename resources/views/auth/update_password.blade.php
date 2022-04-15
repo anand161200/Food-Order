@@ -1,38 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- <div class="container">
-        <div class="title mt-5"><b>Update paassword</b></div>
-        <hr>
-        <form action="{{ route('password_update') }}" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" value="{{ old('password') }}"
-                    placeholder="Password">
-                <span class="filed_error">
-                    @error('password')
-                        {{ $message }}
-                    @enderror
-                </span>
-            </div>
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Confirm password</label>
-                <input type="password" class="form-control" name="confirm_password" value="{{ old('confirm_password') }}"
-                    placeholder="Confirm password">
-                <span class="filed_error">
-                    @error('confirm_password')
-                        {{ $message }}
-                    @enderror
-                </span>
-            </div>
-            <div class="button">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-    </div> --}}
-
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">

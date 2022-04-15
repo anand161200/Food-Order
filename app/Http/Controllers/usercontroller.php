@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\FoodDetail;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasPermissions;
+use Spatie\Permission\Traits\HasRoles;
 
 class usercontroller extends Controller
 {
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, HasPermissions;
 
     public function dashboard()
     {
@@ -30,7 +36,6 @@ class usercontroller extends Controller
 
     public function addNewUser(Request $request)
     {
-
         $request->validate([
             'user_name' => 'required',
             'first_name' => 'required',
@@ -60,6 +65,8 @@ class usercontroller extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
+        $user->assignRole(2);
+
         return redirect()->route('login_form');
     }
 
@@ -79,7 +86,11 @@ class usercontroller extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
+
+            if (Auth::user()->hasrole('admin')) {
+                return redirect()->route('dashboard');
+            }
+            return redirect()->route('user_Home');
         }
 
         Session::flash('message', 'Email or passsword inccorect.');

@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\FoodDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class FoodDetailController extends Controller
 {
     public function index()
     {
-        $food_list = FoodDetail::all();
+        $menus = DB::table('food_detail')
+            ->select([
+                'food_detail.*',
+                'categories.category_name'
+            ])
+            ->join('categories', 'food_detail.category_id', '=', 'categories.id')
+            ->get();
 
-        $group_data = $food_list->groupBy('category');
+        $group_data = $menus->groupBy('category_name');
 
         // dd($group_data->toArray());
 
@@ -28,7 +35,6 @@ class FoodDetailController extends Controller
 
     public function insert(Request $request)
     {
-
         $request->validate([
             'food_name' => 'required',
             'description' => 'required',
@@ -37,11 +43,10 @@ class FoodDetailController extends Controller
             'images' => 'required'
         ]);
 
-
         $menu = new FoodDetail();
         $menu->food_name = $request->food_name;
         $menu->description = $request->description;
-        $menu->category = $request->category;
+        $menu->category_id = $request->category;
         $menu->price = $request->price;
 
         if ($request->hasFile('images')) {
@@ -53,14 +58,12 @@ class FoodDetailController extends Controller
         }
         $menu->save();
 
-
         return redirect()->route('index');
     }
 
     function editData($id)
     {
         $food_detail = FoodDetail::where('id', $id)->first();
-
         return view('Food_Details.edit_food')->with([
             'food_detail' => $food_detail,
             'categorydata' => category::all()
@@ -80,7 +83,7 @@ class FoodDetailController extends Controller
         $menu = FoodDetail::find($request->id);
         $menu->food_name = $request->food_name;
         $menu->description = $request->description;
-        $menu->category = $request->category;
+        $menu->category_id = $request->category;
         $menu->price = $request->price;
 
         if ($request->hasFile('images')) {

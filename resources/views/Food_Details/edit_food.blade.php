@@ -60,8 +60,8 @@
                                         <option value="">Select Category</option>
 
                                         @foreach ($categorydata as $val)
-                                            <option value="{{ $val->category_name }}"
-                                                {{ $food_detail->category === $val->category_name ? 'selected' : '' }}>
+                                            <option value="{{ $val->id }}"
+                                                {{ $food_detail->category_id === $val->id ? 'selected' : '' }}>
                                                 {{ $val->category_name }}
                                             </option>
                                         @endforeach
