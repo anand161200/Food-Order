@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientSideController;
 use App\Http\Controllers\FoodDetailController;
@@ -92,3 +93,13 @@ Route::get('/about', [ClientSideController::class, 'About'])->name('about')->mid
 Route::get('/gallery', [ClientSideController::class, 'Gallery'])->name('gallery')->middleware(['auth']);
 
 Route::get('/contact_us', [ClientSideController::class, 'Contact_us'])->name('Contact_us')->middleware(['auth']);
+
+//Cart
+
+Route::get('/view_cart', [CartController::class, 'ViewCart'])->name('view_cart');
+
+Route::get('add_to_cart/{menu_id}', [CartController::class, 'AddtoCart']);
+
+Route::post('update_cart/{cart_id}/', [CartController::class, 'updatecart'])->name('update_cart');
+
+Route::get('delete_cart/{cart_id}', [CartController::class, 'deleteCart']);
