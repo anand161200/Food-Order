@@ -135,7 +135,7 @@
 
                         <li class="side-menu"><a href="#">
                                 <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">3</span>
+                                <span class="badge">{{ count($all_cart) }}</span>
                                 <p>My Cart</p>
                             </a></li>
                     </ul>
@@ -147,20 +147,25 @@
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="cart-box">
                     <ul class="cart-list">
-                        @foreach ($all_cart as $item)
-                            <li>
-                                <a href="#" class="photo"><img
-                                        src="{{ asset('uploads/foodimage/' . $item->images) }}"
-                                        class="cart-thumb" alt="" /></a>
-                                <h6><a href="#">{{ $item->food_name }} </a></h6>
-                                <p> <span class="price">{{ $item->price }}</span></p>
-                            </li>
-                        @endforeach
+                        @if (count($all_cart) > 0)
+                            @foreach ($all_cart as $item)
+                                <li>
+                                    <a class="photo">
+                                        <img src="{{ asset('uploads/foodimage/' . $item->images) }}"
+                                            class="cart-thumb" alt="" /></a>
+                                    <p>{{ $item->food_name }}</p>
+                                    <p>Quantity : {{ $item->quantity }}</p>
+                                    <p class="price">Price : {{ $item->price }}</p>
+
+                                </li>
+                            @endforeach
+                        @endif
+
                         <li class="total">
                             <a href="{{ route('view_cart') }}" class="btn btn-default hvr-hover btn-cart">VIEW
                                 CART</a>
-                            <span
-                                class="float-right"><strong>Total</strong>:{{ $item->quantity * $item->price }}</span>
+                            <span class="float-right"><strong>Total</strong>:
+                                {{ $sub_total->total ?? '0' }}</span>
                         </li>
 
                     </ul>

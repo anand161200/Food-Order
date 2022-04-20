@@ -100,6 +100,6 @@ Route::get('/view_cart', [CartController::class, 'ViewCart'])->name('view_cart')
 
 Route::get('add_to_cart/{menu_id}', [CartController::class, 'AddtoCart']);
 
-Route::post('update_cart/{cart_id}/', [CartController::class, 'updatecart'])->name('update_cart');
+Route::get('update_cart/{cart_id}/{quantity}', [CartController::class, 'updatecart'])->name('update_cart');
 
 Route::get('delete_cart/{cart_id}', [CartController::class, 'deleteCart']);
