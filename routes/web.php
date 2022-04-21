@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientSideController;
 use App\Http\Controllers\FoodDetailController;
+use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\usercontroller;
 use App\Models\category;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +21,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('dashbord', function () {
-    return view('layouts.app');
-})->name('app');
 
 // food menu
 
@@ -103,3 +101,8 @@ Route::get('add_to_cart/{menu_id}', [CartController::class, 'AddtoCart']);
 Route::get('update_cart/{cart_id}/{quantity}', [CartController::class, 'updatecart'])->name('update_cart');
 
 Route::get('delete_cart/{cart_id}', [CartController::class, 'deleteCart']);
+
+//Order
+Route::get('Checkout_form', [OrderDetailController::class, 'CheckOutForm'])->name('Checkout_form');
+
+Route::post('store_order', [OrderDetailController::class, 'StoreOrder'])->name('store_order');
