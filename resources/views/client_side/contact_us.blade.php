@@ -25,37 +25,38 @@
                         <h2>GET IN TOUCH</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio justo, ultrices ac nisl sed,
                             lobortis porta elit. Fusce in metus ac ex venenatis ultricies at cursus mauris.</p>
-                        <form id="contactForm">
+                        <form action="{{ route('contact_information') }}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="Your Name" required data-error="Please enter your name">
+                                        <input type="text" class="form-control" name="name" placeholder="Your Name"
+                                            required data-error="Please enter your name">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" placeholder="Your Email" id="email" class="form-control"
-                                            name="name" required data-error="Please enter your email">
+                                        <input type="text" placeholder="Your Email" class="form-control" name="email"
+                                            required data-error="Please enter your email">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="subject" name="name"
-                                            placeholder="Subject" required data-error="Please enter your Subject">
+                                        <input type="text" class="form-control" name="subject" placeholder="Subject"
+                                            required data-error="Please enter your Subject">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message"
+                                        <textarea class="form-control" name='message' placeholder="Your Message" rows="4" data-error="Write your message"
                                             required></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="submit-button text-center">
-                                        <button class="btn hvr-hover" id="submit" type="submit">Send Message</button>
+                                        <button class="btn hvr-hover" type="submit">Send Message</button>
                                         <div id="msgSubmit" class="h3 text-center hidden"></div>
                                         <div class="clearfix"></div>
                                     </div>

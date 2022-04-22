@@ -18,6 +18,11 @@
                         href="{{ route('index') }}" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span
                             class="hide-menu">Menus</span></a>
                 </li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="{{ route('conatct_list') }}" aria-expanded="false"><i
+                            class="mdi mdi-border-inside"></i><span class="hide-menu">Conatct
+                            us</span></a>
+                </li>
             </ul>
         </nav>
 

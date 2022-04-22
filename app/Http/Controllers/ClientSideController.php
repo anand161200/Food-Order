@@ -53,4 +53,14 @@ class ClientSideController extends Controller
     {
         return view('client_side.contact_us')->with(['all_cart' => $this->allCart()]);
     }
+
+    function UserProfile()
+    {
+        return view('client_side.user_profile_update');
+    }
+
+    function UserPassword()
+    {
+        return view('client_side.user_password_update');
+    }
 }

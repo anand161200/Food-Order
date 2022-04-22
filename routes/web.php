@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientSideController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FoodDetailController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\usercontroller;
@@ -106,3 +107,19 @@ Route::get('delete_cart/{cart_id}', [CartController::class, 'deleteCart']);
 Route::get('Checkout_form', [OrderDetailController::class, 'CheckOutForm'])->name('Checkout_form');
 
 Route::post('store_order', [OrderDetailController::class, 'StoreOrder'])->name('store_order');
+
+//Conatct information of user
+
+Route::post('contact_information', [ContactUsController::class, 'GetInTouch'])->name('contact_information')->middleware(['auth']);
+
+Route::get('conatct_list', [ContactUsController::class, 'UserContactlist'])->name('conatct_list');
+
+Route::get('delete_contact/{id}', [ContactUsController::class, 'DeleteContactlist'])->middleware(['auth']);
+
+//user Profile update
+
+Route::get('user_edit_profile', [ClientSideController::class, 'UserProfile'])->name('user_edit_profile');
+
+Route::get('user_edit_password', [ClientSideController::class, 'UserPassword'])->name('user_edit_password');
+
+Route::get('logout', [usercontroller::class, 'logout'])->name('logout');

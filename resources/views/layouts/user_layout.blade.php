@@ -33,7 +33,6 @@
 
 <body>
 
-
     <!-- Start Main Top -->
     <header class="main-header">
         <!-- Start Navigation -->
@@ -61,25 +60,34 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('Contact_us') }}">Contact
                                 Us</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Account</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('register') }}">Register</a></li>
+                                <li><a href="{{ route('login_form') }}">Login</a></li>
+                                <li><a href="{{ route('user_edit_profile') }}">Update Profile</a></li>
+                                <li><a href="{{ route('user_edit_password') }}">Upadte Password</a></li>
+                                <li><a href="{{ route('logout') }}">Logout</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-                <!-- /.navbar-collapse -->
 
-                <!-- Start Atribute Navigation -->
                 <div class="attr-nav">
                     <ul>
 
                         <li class="side-menu"><a href="#">
                                 <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">{{ count($all_cart) }}</span>
+                                {{-- <span class="badge">{{ count($all_cart) }}</span> --}}
                                 <p>My Cart</p>
                             </a></li>
                     </ul>
                 </div>
                 <!-- End Atribute Navigation -->
             </div>
+
             <!-- Start Side Menu -->
-            <div class="side">
+            {{-- <div class="side">
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="cart-box">
                     <ul class="cart-list">
@@ -106,7 +114,7 @@
 
                     </ul>
                 </li>
-            </div>
+            </div> --}}
             <!-- End Side Menu -->
         </nav>
         <!-- End Navigation -->
