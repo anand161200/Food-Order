@@ -9,8 +9,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                            <p class="m-b-40">See how your users experience your website in realtime or view
-                                <br> trends to see any changes in performance over time.
+                            <p class="m-b-40">Food can fill your stomach as well as your heart. It can excite you,
+                                fuel your imagination and tickle memories. At Faasos, <br>
+                                we felt if food is so much more than just eating, then why not...
                             </p>
                             <p><a class="btn hvr-hover" href="#">Shop New</a></p>
                         </div>
@@ -23,8 +24,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                            <p class="m-b-40">See how your users experience your website in realtime or view
-                                <br> trends to see any changes in performance over time.
+                            <p class="m-b-40">Food can fill your stomach as well as your heart. It can excite you,
+                                fuel your imagination and tickle memories. At Faasos,<br> we felt if food is so much more
+                                than just eating, then why not...
                             </p>
                             <p><a class="btn hvr-hover" href="#">Shop New</a></p>
                         </div>
@@ -37,8 +39,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                            <p class="m-b-40">See how your users experience your website in realtime or view
-                                <br> trends to see any changes in performance over time.
+                            <p class="m-b-40">Food can fill your stomach as well as your heart. It can excite you,
+                                fuel your imagination and tickle memories. At Faasos,<br> we felt if food is so much more
+                                than just eating, then why not...
                             </p>
                             <p><a class="btn hvr-hover" href="#">Shop New</a></p>
                         </div>
@@ -139,7 +142,7 @@
                                         <li><a href="#" data-toggle="tooltip" data-placement="right"
                                                 title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                     </ul>
-                                    <a class="cart" href="#">Add to Cart</a>
+                                    <a class="cart" href="add_to_cart/{{ $food->id }}">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="why-text">

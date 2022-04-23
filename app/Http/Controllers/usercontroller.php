@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\category;
 use App\Models\FoodDetail;
 use App\Models\User;
@@ -22,6 +23,7 @@ class usercontroller extends Controller
     {
         $total_category = category::count();
         $total_menu = FoodDetail::count();
+
 
         return view('dashboard')->with([
             'total_category' => $total_category,

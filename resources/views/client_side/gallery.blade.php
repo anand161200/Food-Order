@@ -45,9 +45,6 @@
                 <div class="col-lg-3 col-md-6 special-grid bulbs">
                     <div class="products-single fix">
                         <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="sale">Sale</p>
-                            </div>
                             <img src="{{ asset('user/images/img2.jpg') }}" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
@@ -58,7 +55,6 @@
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i
                                                 class="far fa-heart"></i></a></li>
                                 </ul>
-                                <a class="cart" href="#">Add to Cart</a>
                             </div>
                         </div>
                     </div>

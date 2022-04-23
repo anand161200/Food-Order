@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientSideController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FoodDetailController;
+use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\usercontroller;
 use App\Models\category;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('dashbord', function () {
-    return view('layouts.app');
-})->name('app');
 
 // food menu
 
@@ -90,3 +90,36 @@ Route::get('/home', [ClientSideController::class, 'UserHome'])->name('user_Home'
 Route::get('/about', [ClientSideController::class, 'About'])->name('about')->middleware(['auth']);
 
 Route::get('/gallery', [ClientSideController::class, 'Gallery'])->name('gallery')->middleware(['auth']);
+
+Route::get('/contact_us', [ClientSideController::class, 'Contact_us'])->name('Contact_us')->middleware(['auth']);
+
+//Cart
+
+Route::get('/view_cart', [CartController::class, 'ViewCart'])->name('view_cart');
+
+Route::get('add_to_cart/{menu_id}', [CartController::class, 'AddtoCart']);
+
+Route::get('update_cart/{cart_id}/{quantity}', [CartController::class, 'updatecart'])->name('update_cart');
+
+Route::get('delete_cart/{cart_id}', [CartController::class, 'deleteCart']);
+
+//Order
+Route::get('Checkout_form', [OrderDetailController::class, 'CheckOutForm'])->name('Checkout_form');
+
+Route::post('store_order', [OrderDetailController::class, 'StoreOrder'])->name('store_order');
+
+//Conatct information of user
+
+Route::post('contact_information', [ContactUsController::class, 'GetInTouch'])->name('contact_information')->middleware(['auth']);
+
+Route::get('conatct_list', [ContactUsController::class, 'UserContactlist'])->name('conatct_list');
+
+Route::get('delete_contact/{id}', [ContactUsController::class, 'DeleteContactlist'])->middleware(['auth']);
+
+//user Profile update
+
+Route::get('user_edit_profile', [ClientSideController::class, 'UserProfile'])->name('user_edit_profile');
+
+Route::get('user_edit_password', [ClientSideController::class, 'UserPassword'])->name('user_edit_password');
+
+Route::get('logout', [usercontroller::class, 'logout'])->name('logout');

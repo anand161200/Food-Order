@@ -1,27 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.user_layout')
 @section('content')
-    <div class="page-breadcrumb">
-        <div class="row">
-            <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Update profile</h4>
-                <div class="ml-auto text-right">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Update profile</li>
-                        </ol>
-                    </nav>
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Contact Us</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active"> Contact Us </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <form class="form-horizontal" action="{{ route('upadate_profile') }}" method="post"
-                        enctype="multipart/form-data">
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <h4 class="card-title">Upadte Profile</h4>
